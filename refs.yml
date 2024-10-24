@@ -1,6 +1,36 @@
+リポジトリ:
+  type: web
+  title: リポジトリ
+  author:
+    - Kanakanho
+    - SatooRu
+  url: https://github.com/kajiLabTeam/ipsj-national-convention-typst-template
+  date: 2024-10-24
+
+数式の書き方:
+  type: web
+  title: Typstの数式の書き方
+  author: Typst
+  url: https://typst.app/docs/reference/math/
+  date: 2024-10-24
+
+Suica:
+  type: web
+  title: Suica
+  author: JR東日本
+  url: https://www.jreast.co.jp/suica/
+  date: 2024-10-24
+
 アデリーペンギン:
   type: web
   title: アデリーペンギン
   author: Wikipedia
   url: https://ja.wikipedia.org/wiki/アデリーペンギン
+  date: 2024-10-24
+
+佐藤さとる:
+  type: web
+  title: 佐藤さとる
+  author: SatooRu
+  url: https://satooru.me/
   date: 2024-10-24

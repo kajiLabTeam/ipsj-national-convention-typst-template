@@ -1,78 +1,113 @@
-#import "template/template.typ" : template
+#import "template/template.typ": template
 #import "@preview/roremu:0.1.0": roremu
+#import "@preview/codelst:2.0.0": sourcecode
 #import "template/functinos.typ": img, tbl
 
 #show: template.with(
-  title: ("Typst を用いた", "論文のテンプレート"), 
-    names: (
-    (
-      ja: "佐藤智",
-      en: "Satoru Sato",
-      group: 1
-    ),
-    (
-      ja: "斎藤彩都",
-      en: "Saito Saito",
-      group: 2
-    ),
-    (
-      ja: "山田邪馬",
-      en: "Yamada Yama",
-      group: 1
-    ),
+  title: ("Typst を用いた", "論文のテンプレート"),
+  names: (
+    (ja: "佐藤智", en: "Satoru Sato", group: 1),
+    (ja: "斎藤彩都", en: "Saito Saito", group: 2),
+    (ja: "山田邪馬", en: "Yamada Yama", group: 1),
   ),
   affiliations: (
-    (
-      ja: "愛知工業大学情報科学部",
-      en: "Aichi Institute of Technology",
-      group: 1
-    ),
-    (
-      ja: "愛知工業大学大学院経営情報科学研究科",
-      en: "Department of Information Science",
-      group: 2
-    )
+    (ja: "愛知工業大学情報科学部", en: "Aichi Institute of Technology", group: 1),
+    (ja: "愛知工業大学大学院経営情報科学研究科", en: "Department of Information Science", group: 2),
   ),
 )
 
-= 大見出しA
-== セクションA
-#roremu(232)
+= はじめに
+非公式Typst 版 情報処理学会全国大会テンプレートです。このテンプレートの利用は自由ですが、このテンプレートを利用したことによるいかなる損害についても、作者は責任を負いません。
 
-#roremu(232)
 
-== セクションB
-#tbl(table(
-    columns: 4,
-    [t], [1], [2], [3],
-    [y], [0.3s], [0.4s], [0.8s],
+= 使用方法
+== リポジトリ
+このリポジトリ @リポジトリ はテンプレートリポジトリになっています。GitHubの画面右上から "Use this template" を押して新しいリポジトリを作成してください。
+
+
+== 表
+#tbl(
+  table(
+    columns: 2,
+    align: center,
+    stroke: (x, y) => (
+      top: if y == 0 {
+        0pt
+      } else if y == 1 {
+        1pt
+      } else {
+        0.5pt
+      },
+    ),
+    [数学記号], [数学記号を表す文字列],
+    $sum$, "\sum",
+    $infinity$, "\infty",
+    $cos$, "\cos",
+    $sin$, "\sin",
+    $pi$, "\pi",
+    $integral$, "\int",
   ),
-  caption: [テーブル1],
-) <tbl1>
+  caption: [数式記号],
+) <数式記号>
 
-#tbl(table(
-    columns: 4,
-    [t], [1], [2], [3],
-    [y], [0.3s], [0.4s], [0.8s],
-  ),
-  caption: [テーブル2],
-) <tbl2>
+@数式記号 のように表を表示できます。
 
-@tbl1 も表示できますし、@tbl2 も表示できます。
+== 画像
+#img(image("images/typst.svg", width: 20%), caption: [typstロゴ]) <typstロゴ>
 
-= 大見出しB
-#img(
-  image("images/typst.svg", width: 20%),
-  caption: [イメージ],
-) <img1>
+@typstロゴ のように画像を表示することもできます。
 
-@img1 を表示できます.@アデリーペンギン
+== 数式
+$
+  f(x) = a_0 + sum_(n=1)^infinity (a_n cos (n pi x) / L + b_n sin (n pi x) / L)
+$
 
-= 大見出しC
-#roremu(1000)
+数式は以上のように TeX とは異なる記法で書くことができます @数式の書き方。
 
-= 大見出しD
-#roremu(1000)
+== コードブロック
+#sourcecode[```c
+  #include <stdio.h>
+
+  int main() {
+  printf("Hello, World!\n");
+  return 0;
+  }
+  ```]
 
 
-#bibliography("refs.yml", title: "参考文献")
+= アデリーペンギンのかわいさ
+アデリーペンギンとは、そのシンプルさや愛くるしさから JR東日本の発行する Suica @Suica をはじめとするマスコットキャラクタに採用されている。
+
+== 名前の由来
+アデリーペンギンの名前の由来は、フランスの探検家ジュール・デュモン・デュルヴィルが南極大陸のアデリーランドでこのペンギンを発見したことによる。アデリーランドはデュモン・デュルヴィルの妻アデリーへの献名であり、その地で発見されたペンギンもアデリーペンギンと名付けられた。
+
+== 特徴
+アデリーペンギンの魅力はなんといっても目の周りのアイリングである。このアイリングは目の周りを白く囲っている。そのため目を見開いているときはまん丸さを強調し、閉じているときは一直線のように見えるため、表情が豊かに見える。
+
+また身体は柔らかくまるで液体かのようにみえことから、佐藤さとる @佐藤さとる は「ペンギン界のネコ」と呼んでいる。ただし、これは一般的ではない。
+
+== まとめ
+書くのが面倒なのでここで終わりにする。結局のところアデリーペンギンはかわいいのである。
+
+
+= 吾輩は猫である
+#roremu(359)
+
+= 吾輩は企鵝である
+吾輩は企鵝である。
+名前はまだ無い。
+どこで生れたかとんと見当がつかぬが多分南極圏である。
+何でも非常に寒く感想した所でボエェーボエェー鳴いていた事だけは記憶している。
+吾輩はここで始めて人間というものを見た。
+しかもあとで聞くとそれは研究者という人間中で一番獰悪な種族であったそうだ。
+この研究者というのは時々我々を捕えてセンサを取り付けるという話である。
+しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+ただ彼の掌に載せられて袋を被せられた時何だかフワフワした感じがあったばかりである。
+膝の上で少し落ちついて研究者の顔を見たのがいわゆる人間というものの見始であろう。
+この時妙なものだと思った感じが今でも残っている。
+第一油をもって撥水されべきはずの身体がつるつるしてまるで海綿だ。
+その後皇帝にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。
+
+
+
+#bibliography("refs.yml", title: "参考文献", style: "nature")
