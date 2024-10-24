@@ -1,11 +1,6 @@
-TypstTemplate:
-  type: Article
-  language: ja
-  title: TypstTemplate
-  date: "2024-10-24"
-  page-range: "1-6"
-  author: ["kanakanho"]
-  parent:
-    type: Periodical
-    title: 全国大会のTypstテンプレート
-  url: https://github.com/kajiLabTeam/ipsj-national-convention-typst-template
+アデリーペンギン:
+  type: web
+  title: アデリーペンギン
+  author: Wikipedia
+  url: https://ja.wikipedia.org/wiki/アデリーペンギン
+  date: 2024-10-24
