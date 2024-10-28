@@ -43,7 +43,7 @@
     ..names.map(author => {
       let footnote = footnotes.at(str(author.group));
 
-      [#author.ja#super(str(footnote.index))]
+      [#author.ja#super(numbering("*", footnote.index))]
     }),
   )
   grid(
@@ -52,7 +52,7 @@
     ..affiliations.map(author => {
       let footnote = footnotes.at(str(author.group));
 
-      [#author.ja#super(str(footnote.index))]
+      [#author.ja#super(numbering("*", footnote.index))]
     }),
   )
 
