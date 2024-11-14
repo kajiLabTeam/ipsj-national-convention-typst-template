@@ -1,11 +1,11 @@
 リポジトリ:
   type: web
-  title: リポジトリ
+  title: 情報処理学会全国大会非公式 Typst テンプレートリポジトリ
   author:
-    - Kanakanho
+    - kanakanho
     - SatooRu
   url: https://github.com/kajiLabTeam/ipsj-national-convention-typst-template
-  date: 2024-10-24
+  date: 2024-11-14
 
 数式の書き方:
   type: web
