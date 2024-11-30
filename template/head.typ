@@ -19,6 +19,10 @@
 ) = {
   set align(center)
 
+  set text(
+    16pt,
+    weight: 500,
+  )
   mixed(
     fonts.sans-ja,
     fonts.serif-ja,
@@ -26,21 +30,19 @@
       grid(
         rows: title.len(),
         row-gutter: 8pt,
-        ..title.map(title => {
-          text(
-            16pt,
-            weight: 500,
-            [#title \ ],
-          )
-        }),
+        ..title,
       )
     } else {
-      text(
-        16pt,
-        weight: 500,
-        [#title \ ],
+      grid(
+        rows: 1,
+        row-gutter: 8pt,
+        title,
       )
     },
+  )
+  set text(
+    8.8pt,
+    weight: 100,
   )
 
   spacer()
