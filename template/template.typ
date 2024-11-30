@@ -14,10 +14,17 @@
   body,
 ) = {
   // ドキュメントの設定
-  set document(
-    title: title.join(""),
-    author: names.map(a => a.ja)
-  )
+  if type(title) == "array" {
+    set document(
+      title: title.join(""),
+      author: names.map(a => a.ja),
+    )
+  } else {
+    set document(
+      title: title,
+      author: names.map(a => a.ja),
+    )
+  }
 
   // ページの設定
   set par(
@@ -28,7 +35,7 @@
   set page(
     columns: 2,
     paper: paper-size,
-    footer: align(center)[#context(counter(page).display("1"))]
+    footer: align(center)[#context (counter(page).display("1"))],
   )
 
   set figure(
@@ -41,9 +48,7 @@
   }
 
   // 段落の設定
-  set heading(
-    numbering: "1.1.1",
-  )
+  set heading(numbering: "1.1.1")
 
   // 図の設定
   set figure(supplement: "図")
@@ -59,27 +64,33 @@
     text(
       font: fonts.sans-ja,
       weight: "medium",
-      it
+      it,
     )
     spacer()
   }
 
-  let footnotes = (:);
+  let footnotes = (:)
   for author in names + affiliations {
-    let is_exist = footnotes.keys().contains(str(author.group));
+    let is_exist = footnotes.keys().contains(str(author.group))
     let index = 0
 
     if not is_exist {
-      footnotes.insert(str(author.group), (
-        index: footnotes.len() + 1,
-        text: author.en,
-      ));
+      footnotes.insert(
+        str(author.group),
+        (
+          index: footnotes.len() + 1,
+          text: author.en,
+        ),
+      )
     } else {
-      let text = footnotes.at(str(author.group)).text;
-      footnotes.insert(str(author.group), (
-        index: footnotes.at(str(author.group)).index,
-        text: text + ", " + author.en,
-      ));
+      let text = footnotes.at(str(author.group)).text
+      footnotes.insert(
+        str(author.group),
+        (
+          index: footnotes.at(str(author.group)).index,
+          text: text + ", " + author.en,
+        ),
+      )
     }
   }
 
@@ -93,11 +104,11 @@
       names: names,
       affiliations: affiliations,
       footnotes: footnotes,
-    )
+    ),
   )
 
   set footnote(numbering: "*")
-  show footnote: it => text(size:0pt, it)
+  show footnote: it => text(size: 0pt, it)
   for f in footnotes {
     footnote(str(f.at(1).text))
   }
