@@ -21,7 +21,7 @@
 
   set text(
     16pt,
-    weight: 500,
+    weight: 900,
   )
   mixed(
     fonts.sans-ja,
@@ -42,7 +42,7 @@
   )
   set text(
     8.8pt,
-    weight: 100,
+    weight: 400,
   )
 
   spacer()
