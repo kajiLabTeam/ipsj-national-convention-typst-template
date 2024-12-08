@@ -15,24 +15,34 @@
   title: (),
   names: (),
   affiliations: (),
-  footnotes: (:)
+  footnotes: (:),
 ) = {
   set align(center)
 
+  set text(
+    16pt,
+    weight: 900,
+  )
   mixed(
     fonts.sans-ja,
     fonts.serif-ja,
-    grid(
-      rows: title.len(),
-      row-gutter: 8pt,
-      ..title.map(title => {
-        text(
-          16pt,
-          weight: 500,
-          [#title \ ],
-        )
-      }),
-    ),
+    if type(title) == "array" {
+      grid(
+        rows: title.len(),
+        row-gutter: 8pt,
+        ..title,
+      )
+    } else {
+      grid(
+        rows: 1,
+        row-gutter: 8pt,
+        title,
+      )
+    },
+  )
+  set text(
+    8.8pt,
+    weight: 400,
   )
 
   spacer()
@@ -41,7 +51,7 @@
     gutter: 1em,
     columns: calc.min(names.len(), 5),
     ..names.map(author => {
-      let footnote = footnotes.at(str(author.group));
+      let footnote = footnotes.at(str(author.group))
 
       [#author.ja#super(numbering("*", footnote.index))]
     }),
@@ -50,7 +60,7 @@
     gutter: 1em,
     columns: calc.min(affiliations.len(), 5),
     ..affiliations.map(author => {
-      let footnote = footnotes.at(str(author.group));
+      let footnote = footnotes.at(str(author.group))
 
       [#author.ja#super(numbering("*", footnote.index))]
     }),
